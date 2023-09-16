@@ -1,0 +1,26 @@
+{
+  "name": "polling-system-api",
+  "version": "1.0.0",
+  "description": "Polling System API ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Polling",
+    "Options",
+    "Questions",
+    "deletion"
+  ],
+  "author": "Rajendra Hatkar",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
