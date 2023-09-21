@@ -1,6 +1,8 @@
 const express=require("express");
 const port=8001;
+const mongoose = require('mongoose')
 const db = require('./config/mongoose');
+
 const cookieParser = require('cookie-parser')
 const app=express();
 
