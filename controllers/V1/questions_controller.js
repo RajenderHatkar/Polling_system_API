@@ -43,16 +43,15 @@ exports.deleteQuestion = async (req, res) => {
     if (question.options.length > 0) {
       return res.status(400).json({ error: 'Cannot delete a question with options' });
     }
-    //await question.remove();
-    //res.status(204).end();
+    
     const result = await Question.deleteOne({ _id: question });
 
     if (result.deletedCount === 0) {
       return res.status(404).json({ error: 'Question is alredy deleted!!' });
     }
 
-    res.status(204).json({ message: 'Question is alredy deleted!!' });
-    res.status(204).json({ message: 'Question successfully deleted' });
+    res.status(200).json({ message: 'Question is deleted!!' });
+    res.status(204).end();
 
   } catch (error) {
     console.log(error)

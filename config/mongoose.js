@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1:27017/Polling_System_API');
+const url = process.env.DB_URL; 
+mongoose.connect(url);
 
 const db=mongoose.connection;
 

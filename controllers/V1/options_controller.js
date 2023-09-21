@@ -43,11 +43,20 @@ exports.deleteOption = async (req, res) => {
       if (option.votes > 0) {
         return res.status(400).json({ error: 'Cannot delete an option with votes' });
       }
-      await option.remove();
-      res.status(204).end();
+  
+      const result = await Option.deleteOne({ _id: option });
+
+     if (result.deletedCount === 0) {
+      return res.status(404).json({ error: 'option is alredy deleted!!' });
+     }
+
+     res.status(200).json({ message: 'option is deleted!!' });
+     res.status(204).end();
+
     } catch (error) {
       res.status(500).json({ error: 'Internal server error' });
     }
+
   };
   
   // Increment the count of votes for an option
@@ -61,6 +70,7 @@ exports.deleteOption = async (req, res) => {
       await option.save();
       res.status(200).json(option);
     } catch (error) {
+      console.log(error)
       res.status(500).json({ error: 'Internal server error' });
     }
   };
